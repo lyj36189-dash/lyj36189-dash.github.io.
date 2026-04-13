@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youngjin Lim | CV</title>
+  <meta name="description" content="Curriculum Vitae of Youngjin Lim" />
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --paper: rgba(255, 255, 255, 0.92);
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #1d4ed8;
+      --accent-soft: #dbeafe;
+      --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      --radius: 22px;
+      --max: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Pretendard', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0%, transparent 35%),
+        radial-gradient(circle at top right, #e0e7ff 0%, transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, #f3f6fb 100%);
+      color: var(--text);
+      line-height: 1.68;
+      padding: 32px 18px 60px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88));
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 34px 32px 28px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -60px -80px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(59,130,246,0.16), rgba(59,130,246,0));
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .name-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 3.5rem);
+      line-height: 1.06;
+      letter-spacing: -0.04em;
+      color: #0f172a;
+    }
+
+    .role {
+      margin-top: 10px;
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .contact-grid {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contact-card {
+      background: rgba(248, 250, 252, 0.95);
+      border: 1px solid #e8edf4;
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+
+    .contact-label {
+      display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .contact-value {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #0f172a;
+      word-break: break-word;
+    }
+
+    .layout {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: 1.05fr 1.95fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .panel + .panel {
+      margin-top: 18px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0f172a;
+      margin: 0 0 16px;
+      font-weight: 800;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.12);
+      flex: 0 0 auto;
+    }
+
+    .summary {
+      font-size: 0.97rem;
+      color: #334155;
+      margin: 0;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .list li {
+      color: #334155;
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.96rem;
+    }
+
+    .list li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #dbeafe;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .entry {
+      position: relative;
+      padding: 4px 0 0 20px;
+    }
+
+    .entry::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.11);
+    }
+
+    .entry::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 24px;
+      bottom: -12px;
+      width: 2px;
+      background: linear-gradient(180deg, #bfdbfe, rgba(191,219,254,0));
+    }
+
+    .entry:last-child::after {
+      display: none;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .entry-title {
+      font-size: 1.06rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    .entry-meta {
+      color: #64748b;
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .entry-sub {
+      margin: 2px 0 8px;
+      color: #475569;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .entry-desc {
+      margin: 0;
+      padding-left: 18px;
+      color: #334155;
+    }
+
+    .entry-desc li {
+      margin-bottom: 5px;
+    }
+
+    .footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+      margin-top: 24px;
+    }
+
+    .print-tip {
+      margin-top: 14px;
+      font-size: 0.86rem;
+      color: #64748b;
+    }
+
+    @media (max-width: 860px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 18px 12px 40px;
+      }
+
+      .hero,
+      .panel {
+        border-radius: 20px;
+      }
+
+      .hero {
+        padding: 24px 20px;
+      }
+
+      .panel {
+        padding: 20px 18px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+
+      .hero,
+      .panel {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+        backdrop-filter: none;
+      }
+
+      .page {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <span class="badge">Curriculum Vitae</span>
+      <div class="name-row">
+        <div>
+          <h1>Youngjin Lim</h1>
+          <p class="role">
+            Undergraduate Student, Department of Transdisciplinary and Innovations, Seoul National University<br />
+            Interested in AI, data science, interdisciplinary research, and academic community building.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="contact-label">Email</span>
+          <div class="contact-value">your-email@example.com</div>
+        </div>
+        <div class="contact-card">
+          <span class="contact-label">GitHub</span>
+          <div class="contact-value">github.com/yourgithub</div>
+        </div>
+        <div class="contact-card">
+          <span class="contact-label">LinkedIn</span>
+          <div class="contact-value">linkedin.com/in/yourprofile</div>
+        </div>
+        <div class="contact-card">
+          <span class="contact-label">Location</span>
+          <div class="contact-value">Seoul, Republic of Korea</div>
+        </div>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside>
+        <section class="panel">
+          <h2 class="section-title">Profile</h2>
+          <p class="summary">
+            I am a student at Seoul National University studying transdisciplinary and innovation-focused fields. My work centers on connecting technology, analysis, and communication across different domains.
+          </p>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Skills</h2>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Research Writing</span>
+            <span class="tag">Data Analysis</span>
+            <span class="tag">Interdisciplinary Thinking</span>
+            <span class="tag">Presentation</span>
+            <span class="tag">Academic Planning</span>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Research Interests</h2>
+          <ul class="list">
+            <li>Artificial intelligence and data science</li>
+            <li>Human-centered information systems</li>
+            <li>Interdisciplinary education and innovation</li>
+            <li>Game theory, psychology, and decision-making</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Languages</h2>
+          <ul class="list">
+            <li>Korean — Native</li>
+            <li>English — Working proficiency</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Notes</h2>
+          <p class="summary">
+            Replace the placeholder contact information with your real links. You can also remove LinkedIn if you do not use it.
+          </p>
+          <p class="print-tip">This layout also prints cleanly as a PDF.</p>
+        </section>
+      </aside>
+
+      <section>
+        <section class="panel">
+          <h2 class="section-title">Education</h2>
+          <div class="timeline">
+            <article class="entry">
+              <div class="entry-header">
+                <h3 class="entry-title">Seoul National University</h3>
+                <span class="entry-meta">2024 – Present</span>
+              </div>
+              <div class="entry-sub">Department of Transdisciplinary and Innovations</div>
+              <ul class="entry-desc">
+                <li>Studying interdisciplinary approaches across data science, technology, and innovation.</li>
+                <li>Interested in connecting computational methods with real-world problem solving.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Projects</h2>
+          <div class="timeline">
+            <article class="entry">
+              <div class="entry-header">
+                <h3 class="entry-title">Object Scanning Priority Decision System</h3>
+                <span class="entry-meta">Course Project</span>
+              </div>
+              <div class="entry-sub">Algorithm and system design</div>
+              <ul class="entry-desc">
+                <li>Designed a concept for prioritizing recognized objects in AR, HUD, or camera-based interfaces.</li>
+                <li>Planned a weighted ranking structure to determine which objects should be shown first.</li>
+                <li>Used structured object attributes to support sorting and downstream decision logic.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-header">
+                <h3 class="entry-title">Board Game Seminar and Design Study</h3>
+                <span class="entry-meta">Seminar Project</span>
+              </div>
+              <div class="entry-sub">Mathematics, psychology, and economics through games</div>
+              <ul class="entry-desc">
+                <li>Analyzed board games using combinatorics, Bayesian reasoning, bias, and opportunity cost.</li>
+                <li>Connected academic concepts to gameplay strategy and design decisions.</li>
+                <li>Explored original game concepts such as gerrymandering and future energy networks.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-header">
+                <h3 class="entry-title">Campus Shortcut Guidance Proposal</h3>
+                <span class="entry-meta">Writing Project</span>
+              </div>
+              <div class="entry-sub">Policy-oriented academic writing</div>
+              <ul class="entry-desc">
+                <li>Argued for the need for official guidance on informal campus shortcut routes.</li>
+                <li>Focused on safety, accessibility, maintenance, and information equity.</li>
+                <li>Developed structured arguments with concrete campus examples and practical recommendations.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Activities</h2>
+          <div class="timeline">
+            <article class="entry">
+              <div class="entry-header">
+                <h3 class="entry-title">Student-led Academic Community Planning</h3>
+                <span class="entry-meta">2025 – Present</span>
+              </div>
+              <div class="entry-sub">Community design and academic collaboration</div>
+              <ul class="entry-desc">
+                <li>Participated in planning a student academic community centered on interdisciplinary growth.</li>
+                <li>Helped shape vision, identity, and program direction for collaborative student activities.</li>
+              </ul>
+            </article>
+
+            <article class="entry">
+              <div class="entry-header">
+                <h3 class="entry-title">Club and Seminar Participation</h3>
+                <span class="entry-meta">Ongoing</span>
+              </div>
+              <div class="entry-sub">Events, writing, and discussion</div>
+              <ul class="entry-desc">
+                <li>Contributed to seminar planning, project writing, and collaborative event ideation.</li>
+                <li>Engaged in academic discussions spanning science, language, technology, and society.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Coursework</h2>
+          <ul class="list">
+            <li>Introduction to Computer Programming and Artificial Intelligence for Scientists</li>
+            <li>Mathematics and probability-related coursework</li>
+            <li>Interdisciplinary seminars in technology and innovation</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="section-title">Honors / Additional</h2>
+          <ul class="list">
+            <li>Add awards, scholarships, selected programs, or publications here.</li>
+            <li>Add internship or research experience here when available.</li>
+          </ul>
+        </section>
+      </section>
+    </main>
+
+    <div class="footer">© 2026 Youngjin Lim · Built for GitHub Pages</div>
+  </div>
+</body>
+</html>
